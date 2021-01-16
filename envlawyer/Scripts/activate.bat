@@ -1,5 +1,5 @@
 @echo off
-set "VIRTUAL_ENV=D:\all_my_try\my_Django_try\lawyer\lawyer_arabic_2_2021\src\envlawyer"
+set "VIRTUAL_ENV=D:\all_my_try\my_Django_try\lawer\lawyer_arabic_12_2020_blog_account\src\envlawyer"
 
 if defined _OLD_VIRTUAL_PROMPT (
     set "PROMPT=%_OLD_VIRTUAL_PROMPT%"

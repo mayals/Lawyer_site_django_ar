@@ -1,4 +1,4 @@
-#!d:\all_my_try\my_django_try\lawyer\lawyer_arabic_2_2021\src\envlawyer\scripts\python.exe
+#!d:\all_my_try\my_django_try\lawer\lawyer_arabic_12_2020_blog_account\src\envlawyer\scripts\python.exe
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 

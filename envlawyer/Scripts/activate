@@ -40,7 +40,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="$(if [ "$OSTYPE" "==" "cygwin" ]; then cygpath -u 'D:\all_my_try\my_Django_try\lawyer\lawyer_arabic_2_2021\src\envlawyer'; else echo '/D/all_my_try/my_Django_try/lawyer/lawyer_arabic_2_2021/src/envlawyer'; fi;)"
+VIRTUAL_ENV="$(if [ "$OSTYPE" "==" "cygwin" ]; then cygpath -u 'D:\all_my_try\my_Django_try\lawer\lawyer_arabic_12_2020_blog_account\src\envlawyer'; else echo '/D/all_my_try/my_Django_try/lawer/lawyer_arabic_12_2020_blog_account/src/envlawyer'; fi;)"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

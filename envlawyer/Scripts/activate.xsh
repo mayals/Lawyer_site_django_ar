@@ -25,7 +25,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"D:\all_my_try\my_Django_try\lawyer\lawyer_arabic_2_2021\src\envlawyer"
+$VIRTUAL_ENV = r"D:\all_my_try\my_Django_try\lawer\lawyer_arabic_12_2020_blog_account\src\envlawyer"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]
