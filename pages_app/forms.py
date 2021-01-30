@@ -3,7 +3,7 @@ from django import forms
 
 class ContactUsForm(forms.Form):
     subject = forms.CharField(
-        label='Subject',
+        label='الموضوع',
         max_length=100,
         required=True,
         disabled=False)
@@ -11,16 +11,16 @@ class ContactUsForm(forms.Form):
 
     from_email = forms.EmailField(
         max_length=200,
-        label='sender Email',
+        label='البريد الألكتروني للمرسل',
         required=True)
 
 
     message = forms.CharField(
-        label='Text',
+        label='الرسالة النصية',
         required=True,
         max_length=4000,
-        help_text='the max length of text field is 4000',
-        widget=forms.Textarea(attrs={'rows': 5, 'placeholder': 'put your Request here ..'}))
+        help_text='لا تستخدم الرموز أو الأرقام أو الوجوه التعبيرية.',
+        widget=forms.Textarea(attrs={'placeholder': 'إكتب رسالتك هنا'}))
 
 
 

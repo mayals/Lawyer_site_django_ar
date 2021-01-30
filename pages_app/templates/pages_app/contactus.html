@@ -1,38 +1,45 @@
-{% extends 'base.html' %} {% block content %} {% load crispy_forms_tags %}
+{% extends 'base.html' %} {% block content %}{% load crispy_forms_tags %}
 
-<br><br><br><br><br><br>
+<!--messges start -->
+<section id="messages">
+    <div class="container">
+        {% if messages %} {% for message in messages %}
+        <div class='alert alert-{{message.tags}}'>
+            <strong>{{ message }}</strong>
+        </div> {% endfor %} {% endif %}
+    </div>
+</section>
+<!-- messages end -->
 
-<!--messges -->
-{% if messages %} {% for message in messages %}
-<div class='alert alert-{{message.tags}}'>
-    <strong>{{ message }}</strong>
-</div> {% endfor %} {% endif %}
 
-<!--end messages -->
 
-<div class="container">
-    <section>
-        <h4>Contact us</h4>
-        <br><br>
+
+<section>
+    <div class="container">
+
+        <div class="post pb-5 mt-5 ">
+            <h4 class="entry-title about-color"><i class="fas fa-mail-bulk"></i> إتصل بنا </h4>
+        </div>
+
+
+
         <div class="col-md-6">
             <form method="POST" class="form-group">
                 {%csrf_token %} {{form|crispy}}
-                <div><button type="submit">send</button></div>
+                <div><button type="submit">إرسل</button></div>
             </form>
         </div>
-        <div class="col-md-6 wow fadeInLeft " style='padding:70px;'>
-            <p><strong>Contact Info</strong></p>
+
+        <div class="col-md-6" style='padding:70px;'>
+            <p><strong>معلومات الإتصال</strong></p>
             <!-- <span>SED UT PERSPICIATIS UNDE OMNIS ISTE NATUS ERROR SIT VOLUPTATEM ACCUSANTIUM DOLOREMQUE LAUDANTIUM, TOTAM REM APERIAM.</span><br> <br> -->
-            <p>JL.Kemacetan timur no.23. block.Q3<br> Jakarta-Indonesia
+            <p>الرياض \ شارع رقم عشرين <br> عمارة رقم 12
             </p>
-            <p>+6221 888 888 90 <br> +6221 888 88891</p>
-            <p>info@yourdomain.com</p>
+            <p>+966 11111 <br> +966 22222</p>
+            <p>info@lawyer.com</p>
         </div>
 
-    </section>
+    </div>
+</section>
 
-    <br><br>
-</div>
-
-
-{% endblock %}
+<br><br> {% endblock %}
