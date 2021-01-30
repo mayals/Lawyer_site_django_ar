@@ -158,35 +158,35 @@ class Post(models.Model):
 class Comment(models.Model):
     post_fk = models.ForeignKey(
         Post,
-        verbose_name='Post FK',
+        verbose_name='تابع للموضوع',
         on_delete=models.CASCADE,
         related_name='comments_to_post')
 
     comment_author = models.ForeignKey(
         User,
-        verbose_name='Comment author',
+        verbose_name='كاتب التعليق',
         on_delete=models.CASCADE,
         related_name='Comments_to_author')
 
 
     comment_text = models.TextField(
-        verbose_name='Comment text',
+        verbose_name='نص التعليق',
         max_length=4000,
         unique=False,
-        help_text="create your Comment 'Max Length: 4000'",
+        help_text="يجب أن لا يتجاوز طول النص 4000",
         blank=False,
         null=True)
 
 
     comment_created = models.DateTimeField(
-        verbose_name='Comment Created Date',
+        verbose_name='تاريخ النشر',
         auto_now_add=True,
         auto_now=False,
         null=True)
 
 
     comment_updated = models.DateTimeField(
-        verbose_name='Comment Updated Date',
+        verbose_name='تاريخ التعديل',
         auto_now_add=False,
         auto_now=True,
         null=True)

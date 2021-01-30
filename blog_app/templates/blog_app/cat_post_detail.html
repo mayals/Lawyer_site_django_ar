@@ -1,0 +1,183 @@
+{% extends 'base.html' %}{% load crispy_forms_tags %}{% block content %}
+<!--messges start -->
+<section id="messages">
+    <div class="container">
+        {% if messages %} {% for message in messages %}
+        <div class='alert alert-{{message.tags}}'>
+            <strong>{{ message }}</strong>
+        </div> {% endfor %} {% endif %}
+    </div>
+</section>
+<!-- messages end -->
+
+
+<!-- breadcrumb start -->
+<section id="mybreadcrumb">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class="stretched-link" href="{% url 'blog_app:cats_list' %}">الأقسام الرئيسية</a></li>
+                <li class="breadcrumb-item "><a class="stretched-link" href="{% url 'blog_app:posts_to_cat' cat_selected.id %}">{{cat_selected}}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{cat_post_detail}}</li>
+            </ol>
+
+        </nav>
+    </div>
+</section>
+<!--  end breadcrumb -->
+
+
+
+<!-- start padge -->
+<section id="padge">
+    <div class="container">
+        <div class="badge badge-warning float-left">
+            <span class="badge badge-light">{{comments_post_count}}</span> تعليق
+        </div>
+    </div>
+</section>
+<!-- end padge -->
+
+
+
+<!-- start buttons update delete  -->
+<section id="updatedeletebt">
+    <div class="container">
+        {% if cat_post_detail.post_author == user %}
+        <div>
+            <a class="btn btn-sm btn-danger mr-1  float-right" href="{% url 'blog_app:post_delete' cat_selected.id  cat_post_detail.id  %}"><i class="far fa-trash-alt"></i></a>
+            <a class="btn btn-sm btn-success  mr-1 float-right" href="{% url 'blog_app:post_update' cat_selected.id  cat_post_detail.id  %}"><i class="far fa-edit"></i></a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+<!-- end buttons update delete  -->
+
+
+
+<!-- start post detail -->
+<section id="postdetail">
+    <div class="container">
+        <div class="postcard mt-2">
+            <div class="row no-gutters">
+                <div class="col-md-2 float-left">
+                    <img src="{{cat_post_detail.post_author.profile_to_user.prof_image.url}}" alt="{{cat_post_detail.post_title}}" class="float-left rounded-circle m-1" width="110px" height="110px">
+                </div>
+                <div class="col-md-10">
+                    <div class="card-body">
+                        <div>
+                            <h4 class="card-title">{{cat_post_detail.post_title}}</h4>
+                        </div>
+                        <h4>
+                            <div class="badge badge-secondary">
+                                <span class="badge badge-warning"><i class="fas fa-user-edit"></i></span> {{cat_post_detail.post_author}}
+                            </div>
+                        </h4>
+
+                        <p class="card-text">
+                            {{cat_post_detail.post_text}}
+                        </p>
+
+                        <p class="card-text ">
+                            <small class="text-muted ">
+                                <span style="font-size: 19px;">
+                                    <i class="far fa-calendar-check"></i>{{cat_post_detail.post_created |date:'d-m-Y'}}  | 
+                                    <i class="far fa-calendar-plus"></i>{{cat_post_detail.post_updated |date:'d-m-Y'}}  |
+                                    <i class="fa fa fa-eye"></i>  {{cat_post_detail.post_views_counter}}    | 
+                                    <i class="far fa-comments"></i>  {{comments_post_count }}
+                                </span>
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end post detil -->
+
+
+
+<section>
+    <div class="container">
+        <h5 class="text-center text-warning mt-2 mb-2">التعليقات({{comments_post_count}})</h5>
+    </div>
+</section>
+
+<!-- start comments list -->
+<section id="commentslist">
+    <div class="container">
+        {% for comment in comments %}
+        <div class="postcard  m-1 border-top-0 border-right-0 border-left-0">
+            <div class="row no-gutters">
+                <div class="col-md-2">
+                    <img src="{{comment.comment_author.profile_to_user.prof_image.url}} " alt="{{comment.comment_author}} " class="image-wrap img-fluid mt-1 ml-1 float-left rounded-circle" width="90px" height="90px">
+                </div>
+                <div class="col-md-10">
+                    <div class="card-body">
+                        <div>
+                            <h4 class="card-title">{{post.post_title}}</h4>
+                        </div>
+
+                        <h5><span class="badge badge-warning"><i class="far fa-comment"></i></span> {{comment.comment_author}} </h5>
+
+
+                        <p class="card-text text-secondary">
+                            {{comment.comment_text}}
+                        </p>
+
+                        <p class="card-text ">
+                            <small class="text-muted ">
+                                <span style="font-size: 19px;">
+                                    <i class="far fa-calendar-check"></i>{{comment.comment_created |date:'d-m-Y'}}  | 
+                                    <i class="far fa-calendar-plus"></i>{{comment.comment_updated |date:'d-m-Y'}}  |
+                                </span>
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="card m-1 text-center mb-5 ">
+            <div class="card-body ">
+                <p class="card-text ">لم يتم إضافة تعليق لهذ الموضوع بعد .</p>
+                <span class="ml-auto ">
+                     كن أول من يضع تعليق لهذا الموضوع من  
+                         <a href="{% url 'blog_app:post_add' cat_selected.id %} ">
+                               هنا 
+                         </a>
+                    </span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<!-- end comments list -->
+
+
+<!--start add comment form -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="text-center">
+                    <form method="POST" class="form-group" enctype="multipart/form-data">
+
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            {{form.comment_text|as_crispy_field}}
+                        </div>
+
+                        <button type="submit" class="btn btn-sm btn-warning mb-5">إضافة</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end add comment form-->
+
+{% endblock %}

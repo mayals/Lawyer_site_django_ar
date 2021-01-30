@@ -177,7 +177,7 @@ EMAIL_USE_TLS = True
 #--------------------
 
 #--  crispy_forms --#
-CRISPY_TEMPLATE_PACK = 'Bootstrap3'
+CRISPY_TEMPLATE_PACK = 'Bootstrap4'
 
 
 

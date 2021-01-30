@@ -14,47 +14,47 @@ class Profile(models.Model):
         related_name = 'profile_to_user')
     
     prof_image = models.ImageField(
-        verbose_name='Profile Image',
-        help_text=' create Profile Image',
+        verbose_name='صورة شخصية',
+        help_text='أختر صورة رمزية تمثلك',
         upload_to='prof_images/%Y/%m/%d/',
         default='default_user.png',
         null=True)
 
     prof_created = models.DateTimeField(
-        verbose_name='Profile Created Date',
+        verbose_name='تاريخ إنشاء الملف الشخصي',
         auto_now_add=True,
         auto_now=False,
         null=True)
 
     prof_updated = models.DateTimeField(
-        verbose_name='Profile Updated Date',
+        verbose_name='تاريخ آخر تحديث للملف الشخصي',
         auto_now_add=False,
         auto_now=True,
         null=True)
 
 
     prof_mob = models.CharField(
-        verbose_name='Mobile Number',
+        verbose_name='رقم الجوال',
         max_length=14,
-        help_text=' add Mobile Number with your country code, Example(for KSA):00966123456789',
+        help_text='ضع رقم الجوال بالصيغة الدولية مثلا (جوال سعودي 00966501234567)',
         unique=True,
         blank=False,
         null=True)
 
 
     Gender_choices = [
-        ('M', 'Male'),
-        ('F', 'Female'),
+        ('M', 'ذكر'),
+        ('F', 'أنثى'),
     ]
     gender = models.CharField(
-        verbose_name='Gender',
+        verbose_name='الجنس',
         max_length=10,
         choices=Gender_choices,
         null=True,
         blank=True)
 
     def __str__(self):
-            return f'Profile for {self.user_key.username}'
+            return f'الملف الشحصي ل {self.user_key.username}'
 
 
     #inside Profile class we put function to decresse image that user insert in the profile model: 

@@ -24,7 +24,7 @@ def registerform(request):
                 user = authenticate(username=username,password=password) # without(request)_only data
                 login(request,user)
                 #-----------
-                messages.success(request,f'Congratulation ( {user.username} ) you register successfully and then login automatically :) ')
+                messages.success(request,f'تهانينا  {user.username}  تم تسجيلك ودخولك للموقع بنجاح ')
                 register_form = RegisterForm()
                 return redirect('account_app:profile')
     else:
@@ -50,11 +50,11 @@ def loginform(request):
         if user is not None:
             login(request, user)
             login_form = LoginForm()
-            messages.success(request, f'wellcome ( {user.username} ) :)')
+            messages.success(request, f'مرحبا {user.username}')
             return redirect('blog_app:cats_list')
         else:
             login_form = LoginForm()
-            messages.warning(request,'There is error in username or password,please try again')
+            messages.warning(request,'هناك خطأ في أسم المستخدم أو مفتاح الدخول ، من فضلك حاول مرة أخرى .')
             
             context = {
                 'form': login_form,
@@ -79,7 +79,7 @@ def loginform(request):
 # ------------- show logoutform --------#
 def logoutform(request):
     logout(request)
-    messages.info(request, 'logout :(   waiting your login again ')
+    messages.info(request, 'مع السلامة ، ننتظر عودتك قريباً')
     return redirect('blog_app:cats_list')
 
 
@@ -128,7 +128,7 @@ def updateuserprofile(request):
         if update_user_form.is_valid and update_profile_form.is_valid :
             update_user_form.save()
             update_profile_form.save()
-            messages.success(request,'your profile updated successfully..')
+            messages.success(request,'تم تحديث الملف الشخصي بنجاح')
             return redirect('account_app:profile')
     
     else:

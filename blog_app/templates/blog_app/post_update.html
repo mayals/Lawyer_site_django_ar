@@ -1,0 +1,66 @@
+{% extends 'base.html' %}{% load crispy_forms_tags %}{% block content %}
+<!--messges start -->
+<section id="messages">
+    <div class="container">
+        {% if messages %} {% for message in messages %}
+        <div class='alert alert-{{message.tags}}'>
+            <strong>{{ message }}</strong>
+        </div> {% endfor %} {% endif %}
+    </div>
+</section>
+<!-- messages end -->
+
+
+<!-- breadcrumb start -->
+<section id="mybreadcrumb">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class="stretched-link" href="{% url 'blog_app:cats_list' %}">الأقسام الرئيسية</a></li>
+                <li class="breadcrumb-item "><a class="stretched-link" href="{% url 'blog_app:posts_to_cat' cat_selected.id %}">{{cat_selected}}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{cat_post_detail}}</li>
+            </ol>
+
+        </nav>
+    </div>
+</section>
+<!--  end breadcrumb -->
+
+
+
+<section>
+    <div class="container">
+        <strong><p class="text-secondary text-right mb-2">تعديل الموضوع</p></strong>
+    </div>
+</section>
+
+
+
+<!-- start edit post form  -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="text-center">
+                    <form method="POST" enctype="multipart/form-data">
+
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            {{form.post_title|as_crispy_field}}
+                        </div>
+
+
+                        <div class="form-group">
+                            {{form.post_text|as_crispy_field}}
+                        </div>
+
+                        <button type="submit" class="btn btn-sm btn-success mb-5">تعديل</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

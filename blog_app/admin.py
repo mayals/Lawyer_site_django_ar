@@ -21,8 +21,10 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class PostAdmin(admin.ModelAdmin):        
-    fields = ('post_title','post_author','cat_fk','post_views_counter','post_status')
-    list_display = ('post_title','post_author','cat_fk','post_views_counter','post_status','combine_post_title_and_Category')
+    fields = ('post_title', 'post_author', 'cat_fk',
+              'post_text', 'post_views_counter', 'post_status')
+    list_display = ('post_title', 'post_author', 'cat_fk', 'post_text',
+                    'post_views_counter', 'post_status', 'combine_post_title_and_Category')
     list_display_links = ('cat_fk', 'post_author')
     list_editable = ('post_title',)
     list_filter = ('post_author','cat_fk')

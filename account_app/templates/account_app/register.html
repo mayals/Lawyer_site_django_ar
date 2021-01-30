@@ -1,0 +1,94 @@
+{% extends 'base.html' %} {% block content %} {% load crispy_forms_tags %}
+
+
+
+<!--messges start -->
+<section id="messages">
+    <div class="container">
+        {% if messages %} {% for message in messages %}
+        <div class='alert alert-{{message.tags}}'>
+            <strong>{{ message }}</strong>
+        </div> {% endfor %} {% endif %}
+    </div>
+</section>
+<!-- messages end -->
+
+
+
+
+
+
+<section>
+    <div class="container">
+
+        <div class="post pb-5 mt-5 ">
+            <h4 class="entry-title about-color"><i class="fas fa-thumbtack bg-warning"></i> التسجيل</h4>
+        </div>
+
+        <!--register form  -->
+        <div class='row '>
+            <div class='col-md-10'>
+                <form method="POST" class="form-group">
+                    {% csrf_token %}
+                    <div>
+                        {{form|crispy}}
+                    </div>
+                    <div>
+                        <button type='submit' class="btn btn-sm btn-dark">
+                      تسجيل
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <section>
+        <div>
+            <h5>Register Here:</h5>
+        </div>
+        <!-- register form  -->
+        <div class='row '>
+            <div class='col-md-8'>
+                <form method="POST" class="form-group">
+                    {%csrf_token %}
+                    <div>
+                        {{form|crispy}}
+                    </div>
+                    <div><button type='submit ' class="btn btn-skin">Register</button></div>
+                </form>
+            </div>
+        </div>
+
+    </section>
+</div>

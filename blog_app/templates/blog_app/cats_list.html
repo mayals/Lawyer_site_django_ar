@@ -1,0 +1,102 @@
+{% extends 'base.html' %} {% block content %}
+
+<!--messges start -->
+<section id="messages">
+    <div class="container">
+        {% if messages %} {% for message in messages %}
+        <div class='alert alert-{{message.tags}}'>
+            <strong>{{ message }}</strong>
+        </div> {% endfor %} {% endif %}
+    </div>
+</section>
+<!-- messages end -->
+
+
+<section id="mybreadcrumb">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">
+                    <h5>{{page_title}}</h5>
+                </li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+
+
+<section id="padge">
+    <div class="container">
+        <div class="badge badge-warning float-left">
+            <span class="badge badge-light"> {{cats_count}}</span> أقسام رئيسية
+        </div>
+    </div>
+</section>
+
+
+<section id="pagination">
+    <div class="container">
+        {% include 'blog_app/pagination.html' with page=cats %}
+    </div>
+</section>
+
+
+
+
+
+<!-- categories list start -->
+<section id="catslist">
+    <div class="container">
+        {% for cat in cats %}
+        <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="{{ cat.cat_image.url }} " class="card-img" alt={{cat.cat_title}}>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <a href="{% url 'blog_app:posts_to_cat' cat.id %}">
+                            <h5 class="card-title">{{cat.cat_title}}</h5>
+                            <p class="text-muted">{{cat.cat_des}}</p>
+                        </a>
+
+
+                        <div class="badge badge-warning float-right mt-0">
+                            <span class="badge badge-secondary">{{ cat.posts_for_cat_count}}</span> موضوع
+                        </div>
+                        <br>
+                        <div>
+                            <p class="card-text ">
+                                <small class="text-muted">
+                                    <span style="font-size: 18px;">
+                                    <i class="far fa-calendar-check"></i></i> {{cat.cat_created |date:'d-m-Y'}}  | 
+                                    <i class="far fa-calendar-plus "></i></i> {{cat.cat_created |date:'d-m-Y'}}  |
+                                    </span>
+                                </small>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p style="padding:30 ">لم يتم إضافة أقسام رئيسية .</p>
+        {% endfor %}
+    </div>
+</section>
+<!-- categories list end -->
+
+
+
+
+<section id="pagination">
+    <div class="container">
+        {% include 'blog_app/pagination.html' with page=cats %}
+    </div>
+</section>
+
+
+
+{% endblock %}

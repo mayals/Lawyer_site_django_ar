@@ -8,7 +8,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 # ------------category------------------------------------------------------#
 def cats_list(request):
-    page_title = 'Categories'
+    page_title = 'الأقسام الرئيسية'
     cats = Category.objects.all()
     #-- counter of categories --#
     cats_count = Category.objects.all().count()
@@ -93,7 +93,7 @@ def cat_post_detail(request, cat_id, post_id):
             new_comment.comment_author = request.user
             new_comment.save()
             comment_form = CommentForm()
-            messages.success(request,f'thanks ( {request.user.username} ),  new comment add successfully')
+            messages.success(request,f'شكراً  ( {request.user.username} ),  تم إضافة تعليقك بنجاح ')
             return redirect('blog_app:cat_post_detail', cat_id=cat_selected.id, post_id=cat_post_detail.id)
            
 
@@ -134,7 +134,7 @@ def post_add(request,cat_id):
             new_post.save()
             post_form = PostForm()
             messages.success(
-            request, f'thanks ( {request.user.username} ),new post add successfully')
+            request, f'شكراً  ( {request.user.username} ),تم إضافة الموضوع الجديد بنجاح')
             return redirect('blog_app:posts_to_cat', cat_id=cat_selected.id)
     else:
         post_form = PostForm()
@@ -164,7 +164,7 @@ def post_update(request, cat_id, post_id):
         new_post.cat_fk = cat_selected
         new_post.post_author = request.user
         new_post.save()
-        messages.success(request, f'thanks ( {request.user.username} ),the post updated successfully')
+        messages.success(request, f'شكراً  ( {request.user.username} ),تم التعديل بنجاح')
         return redirect('blog_app:cat_post_detail', cat_id=cat_selected.id, post_id=cat_post_detail.id)
     
     context ={
@@ -191,7 +191,7 @@ def post_delete(request, cat_id, post_id):
     
     if request.method =='POST':
         cat_post_detail.delete()
-        messages.success(request, f'thanks ( {request.user.username} ), post deleted successfully')
+        messages.success(request, f'شكراً ( {request.user.username} ), تم حذف موضوعك ')
         return redirect('blog_app:posts_to_cat', cat_id=cat_selected.id)
 
     context ={
@@ -200,43 +200,3 @@ def post_delete(request, cat_id, post_id):
     }
     return render(request,'blog_app/post_delete.html',context)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# ---------- not need ---------------#
-# def cat_detail(request,cat_id):
-#     cat_detail = get_object_or_404(Category, id=cat_id)
-#     context = {
-#         'cat_detail': cat_detail ,
-#     }
-#     return render(request, 'blog_app/cat_detail.html', context)
-
-
-# -------------------------# not need _ _only admin can add new cat in admin page
-# def cats_add(request):
-#     context = {
-
-#     }
-#     return render(request, 'blog_app/cats_add.html', context)
-
-
-# ------------all posts -- not need  ------------------------#
-# def all_posts_list(request):
-#     posts = Post.objects.all()
-#     page_title = 'Posts'
-#     context = {
-#         'posts': posts,
-#         'page_title': page_title,
-#     }
-#     return render(request, 'blog_app/posts_list.html', context)

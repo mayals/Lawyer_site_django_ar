@@ -1,5 +1,237 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% load static %}
 <div>
-    {% block content %} {% endblock content%}
+    {% block content %}
+
+    <!--messges -->
+    {% if messages %} {% for message in messages %}
+    <div class='alert alert-{{message.tags}}'>
+        <strong>{{ message }}</strong>
+    </div> {% endfor %} {% endif %}
+    <!--end messages -->
+
+
+
+
+    <!-- description -->
+    <section class="page-section" id="circles-section">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">بماذا نتميز ؟</h2>
+                <h3 class="section-subheading text-muted">لسنا الأفضل و لكننا مميزون</h3>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                        </span>
+                    <h4 class="my-3">خدمات ألكترونية</h4>
+                    <p class="text-muted">متابعة ألكترونية تغنيك عن التردد على المكاتب.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-clock fa-stack-1x fa-inverse"></i>
+                        </span>
+                    <h4 class="my-3"> لا للمماطلة</h4>
+                    <p class="text-muted">سرعة بأنجاز المهام الموكلة لنا .</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                        </span>
+                    <h4 class="my-3">الإعتمادية والثقة</h4>
+                    <p class="text-muted">هدفنا خدمة العميل بكل مصداقية وشفافية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Portfolio Grid-->
+    <section class="page-section bg-light" id="portfolio">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">خدماتنا</h2>
+                <h3 class="section-subheading text-muted">نفخر بتقديم كافة الخدمات القضائية.</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 mb-4 text-center">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-toggle="modal" href="{% url 'pages_app:under_construction' %}">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fab fa-centos fa-3x"></i></div>
+                            </div>
+                            <img width="100%" class="img-fluid" src="{% static 'images/pages_app/service_1.jpg' %}" alt="" />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">العقود التجارية</div>
+                            <div class="portfolio-caption-subheading text-muted">صياغة إحترافية للعقود التجارية</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4 text-center">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-toggle="modal" href="{% url 'pages_app:under_construction' %}">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fab fa-centos fa-3x"></i></div>
+                            </div>
+                            <img width="100%" class="img-fluid" src="{% static 'images/pages_app/service_2.jpg' %}" alt="" />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">التمثيل والترافع</div>
+                            <div class="portfolio-caption-subheading text-muted">تمثيل العملاء في المحاكم و ديوان المظالم</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4 text-center">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-toggle="modal" href="{% url 'pages_app:under_construction' %}">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fab fa-centos fa-3x"></i></div>
+                            </div>
+                            <img width="100%" class="img-fluid" src="{% static 'images/pages_app/service_3.jpg' %}" alt="" />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">الإستشارات </div>
+                            <div class="portfolio-caption-subheading text-muted">تقديم الإستشارات القانونية والشرعية</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0 text-center">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-toggle="modal" href="{% url 'pages_app:under_construction' %}">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fab fa-centos fa-3x"></i></div>
+                            </div>
+                            <img width="100%" class="img-fluid" src="{% static 'images/pages_app/service_4.jpg' %}" alt="" />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">قضايا المرأة</div>
+                            <div class="portfolio-caption-subheading text-muted">نقدم إستشارات بكل ما يخص المرأة والمجتمع</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0 text-center">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-toggle="modal" href="{% url 'pages_app:under_construction' %}">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fab fa-centos fa-3x"></i></div>
+                            </div>
+                            <img width="100%" class="img-fluid" src="{% static 'images/pages_app/service_5.jpg' %}" alt="" />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">محكمين دوليين</div>
+                            <div class="portfolio-caption-subheading text-muted">خبرة في أنظمة التحكيم الدولية المعتمدة</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 text-center">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-toggle="modal" href="{% url 'pages_app:under_construction' %}">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fab fa-centos fa-3x"></i></div>
+                            </div>
+                            <img width="100%" class="img-fluid" src="{% static 'images/pages_app/service_6.jpg' %}" alt="" />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">النزاعات الشخصية</div>
+                            <div class="portfolio-caption-subheading text-muted">فريق متخصص للإستشارات في حل النزاعات</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Team-->
+    <section class="page-section" id="team">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">المحامون</h2>
+                <h3 class="section-subheading text-muted">لدينا نخبة مميزة من الخبراء القانونيين والمحاميين الأكفاء.</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="{% static 'images/pages_app/p_1.png' %}" alt="" />
+                        <h4>المحامي فلان الفلاني</h4>
+                        <p class="text-muted">
+                            إستشاري القضايا التجارية إستشاري القضايا التجارية إستشاري القضايا التجارية إستشاري القضايا التجارية إستشاري القضايا التجارية إستشاري القضايا التجارية
+                        </p>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="{% static 'images/pages_app/p_2.png' %}" alt="" />
+                        <h4>المحامي فلان الفلاني</h4>
+                        <p class="text-muted">
+                            مدير المؤسسة مدير المؤسسة مدير المؤسسة مدير المؤسسة مدير المؤسسة مدير المؤسسة مدير المؤسسة
+                        </p>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="{% static 'images/pages_app/p_3.png' %}" alt="" />
+                        <h4>المحامي فلان الفلاني</h4>
+                        <p class="text-muted">
+                            إستشاري القضايا الإجتماعية إستشاري القضايا الإجتماعية إستشاري القضايا الإجتماعية إستشاري القضايا الإجتماعية إستشاري القضايا الإجتماعية
+                        </p>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <section id="sites_links">
+        <div class="container-fluid bg-dark pb-3">
+            <span>
+                <h5 class="text-center text-muted pt-2 ">مواقع تهمك</h5>
+            </pan>
+            <div class="row bg-dark text-center">
+                <div class="col-lg-2  col-md-4 col-sm-6">
+                    <a href="https://www.absher.sa/portal/landing.html "><img class="myimg-size img-responsive" src="{% static 'images/pages_app/site_1.jpg' %}" /></a>
+                </div>
+                <div class="col-lg-2  col-md-4 col-sm-6">
+                    <a href="https://najiz.moj.gov.sa/Account/Login?ReturnUrl=%2FHome%2FDashboard"><img class="myimg-size img-responsive" src="{% static 'images/pages_app/site_2.jpg' %}" /></a>
+                </div>
+                <div class="col-lg-2  col-md-4 col-sm-6">
+                    <a href="https://www.my.gov.sa/wps/portal/snp/pages/agencies/agencyDetails/AC057"><img class="myimg-size img-responsive" src="{% static 'images/pages_app/site_3.png' %}" /></a>
+                </div>
+                <div class="col-lg-2  col-md-4 col-sm-6">
+                    <a href="https://www.moj.gov.sa/ar/pages/default.aspx"><img class="myimg-size img-responsive" src="{% static 'images/pages_app/site_4.jpg' %}" /></a>
+                </div>
+                <div class="col-lg-2  col-md-4 col-sm-6">
+                    <a href="#"><img class="myimg-size img-responsive" src="{% static 'images/pages_app/site_5.jpg' %}" /></a>
+                </div>
+                <div class="col-lg-2  col-md-4 col-sm-6">
+                    <a href="#"><img class="myimg-size img-responsive" src="{% static 'images/pages_app/site_4.jpg' %}" /></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
 </div>
+{% endblock content%}

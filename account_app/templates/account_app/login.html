@@ -1,0 +1,56 @@
+{% extends 'base.html' %} {% block content %} {% load crispy_forms_tags %}
+
+
+
+<!--messges start -->
+<section id="messages">
+    <div class="container">
+        {% if messages %} {% for message in messages %}
+        <div class='alert alert-{{message.tags}}'>
+            <strong>{{ message }}</strong>
+        </div> {% endfor %} {% endif %}
+    </div>
+</section>
+<!-- messages end -->
+
+
+
+
+
+<section>
+    <div class="container">
+
+        <div class="post pb-5 mt-5 ">
+            <h4 class="entry-title about-color"><i class="fas fa-sign-in-alt bg-warning"></i> بوابة الدخول</h4>
+        </div>
+
+        <!-- login form  -->
+        <div class='row '>
+            <div class='col-md-10'>
+                <form method="POST" class="form-group">
+                    {% csrf_token %}
+                    <div>
+                        {{form|crispy}}
+                    </div>
+                    <div>
+                        <button type='submit' class="btn btn-sm btn-dark">
+                        دخول
+                        </button>
+                    </div>
+                </form>
+
+                <ul class="float-right">
+                    <li> إذا كنت لا تملك حساب ، يمكنك عمل <a href="{% url 'account_app:register' %}"><b>تسجيل</b></a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+{% endblock %}

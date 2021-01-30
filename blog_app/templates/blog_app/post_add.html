@@ -1,0 +1,82 @@
+ {% extends 'base.html' %} {% block content %}{% load crispy_forms_tags %}
+
+
+<!--messges start -->
+<section id="messages">
+    <div class="container">
+        {% if messages %} {% for message in messages %}
+        <div class='alert alert-{{message.tags}}'>
+            <strong>{{ message }}</strong>
+        </div> {% endfor %} {% endif %}
+    </div>
+</section>
+<!-- messages end -->
+
+
+<!-- start mybreadcrumb -->
+<section id="mybreadcrumb">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class="stretched-link" href="{% url 'blog_app:cats_list' %}">الأقسام الرئيسية</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{cat_selected.cat_title}}</li>
+            </ol>
+
+        </nav>
+    </div>
+</section>
+<!-- end mybreadcrumb -->
+
+
+<!--start padge &  button  -->
+<section id="padge_add">
+    <div class="container">
+        <div class="badge badge-warning float-left">
+            <span class="badge badge-light">{{posts_cat_count}}</span> موضوع
+        </div>
+    </div>
+</section>
+<!--end padge & button  -->
+
+
+
+<section>
+    <div class="container">
+        <strong><p class="text-secondary text-right mb-2">إضافة موضوع جديد</p></strong>
+    </div>
+</section>
+
+
+
+
+<!-- start sdd new post form  -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="text-center">
+                    <form method="POST" enctype="multipart/form-data">
+
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            {{form.post_title|as_crispy_field}}
+                        </div>
+
+
+                        <div class="form-group">
+                            {{form.post_text|as_crispy_field}}
+                        </div>
+
+                        <button type="submit" class="btn btn-sm btn-warning mb-5">إضافة</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end sdd new post form  -->
+
+
+{% endblock %}

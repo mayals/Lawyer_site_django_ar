@@ -1,0 +1,121 @@
+{% extends 'base.html' %} {% block content %}
+
+
+<!--messges start -->
+<section id="messages">
+    <div class="container">
+        {% if messages %} {% for message in messages %}
+        <div class='alert alert-{{message.tags}}'>
+            <strong>{{ message }}</strong>
+        </div> {% endfor %} {% endif %}
+    </div>
+</section>
+<!-- messages end -->
+
+
+
+<section id="mybreadcrumb">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class="stretched-link" href="{% url 'blog_app:cats_list' %}">الأقسام الرئيسية</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{cat_selected.cat_title}}</li>
+            </ol>
+
+        </nav>
+    </div>
+</section>
+
+
+
+<section id="padge_add">
+    <div class="container">
+        <div class="badge badge-warning float-left">
+            <span class="badge badge-light">{{posts_cat_count}}</span> موضوع
+        </div>
+
+        <div class="float-right">
+            <a href="{% url  'blog_app:post_add'  cat_selected.id %}" class="btn btn-sm btn-outline-warning">
+                <i class="fas fa-plus-circle fa-1x"></i> موضوع جديد
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<section id="pagination">
+    <div class="container">
+        {% include 'blog_app/pagination.html' with page=posts_cat %}
+    </div>
+</section>
+
+
+<section id="postscat">
+    <div class="container">
+        {% for post in posts_cat %}
+        <div class="postcard mb-3 border-top-0 border-right-0 border-left-0">
+            <div class="row no-gutters">
+                <div class="col-md-2 pt-4">
+                    <img src="{{post.post_author.profile_to_user.prof_image.url}}" alt=" {{post.post_author}}" class="image-wrap img-fluid mt-1 ml-1 float-left rounded-circle" width="110px" height="110px">
+                </div>
+                <div class="col-md-10">
+                    <div class="card-body">
+                        <div>
+                            <a href="{% url 'blog_app:cat_post_detail' cat_selected.id post.id %}">
+                                <h4 class="card-title">{{post.post_title}}</h4>
+                            </a>
+                        </div>
+
+                        <h4>
+                            <div class="badge badge-secondary">
+                                <span class="badge badge-warning"><i class="fas fa-user-edit"></i></span> {{post.post_author}}
+                            </div>
+                        </h4>
+
+
+
+                        <p class="card-text ">
+                            {% if post.post_text|length > 200 %} {{post.post_text|slice:'210'}} ..
+                            <a href="{% url 'blog_app:cat_post_detail' cat_selected.id post.id %}"> 
+                                 المزيد 
+                                </a> {% else %} {{post.post_text}} {% endif %}
+                        </p>
+                        <p class="card-text ">
+                            <small class="text-muted ">
+                                <span style="font-size: 19px;">
+                                    <i class="far fa-calendar-check"></i></i> {{post.post_created |date:'d-m-Y'}}  | 
+                                    <i class="far fa-calendar-plus "></i></i> {{post.post_updated |date:'d-m-Y'}}  |
+                                    <i class="fa fa fa-eye "></i> {{post.post_views_counter}}  | 
+                                    <i class="far fa-comments"></i> {{post.comments_for_post_count}}
+                                </span>
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="card text-center mb-5 ">
+            <div class="card-body ">
+                <p class="card-text ">لم يتم إضافة مواضيع لهذ القسم بعد .</p>
+                <span class="ml-auto ">
+                     كن أول من يضع موضوع لهذا القسم من  
+                         <a href="{% url 'blog_app:post_add' cat_selected.id %} ">
+                               هنا 
+                         </a>
+                    </span>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</section>
+
+
+<section id="pagination">
+    <div class="container">
+        {% include 'blog_app/pagination.html' with page=posts_cat %}
+    </div>
+</section>
+
+{% endblock %}

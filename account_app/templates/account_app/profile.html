@@ -1,0 +1,212 @@
+{% extends 'base.html' %} {% block content %}
+
+
+
+<!--messges start -->
+<section id="messages">
+    <div class="container">
+        {% if messages %} {% for message in messages %}
+        <div class='alert alert-{{message.tags}}'>
+            <strong>{{ message }}</strong>
+        </div> {% endfor %} {% endif %}
+    </div>
+</section>
+<!-- messages end -->
+
+
+<div class="post pb-5 mt-5 ">
+    <h4 class="entry-title about-color pr-3"><i class="fas fa-sign-in-alt bg-warning"></i> الملف الشخصي {{user.username}}</h4>
+</div>
+
+
+
+
+
+<section id="myprofile">
+    <div class="container">
+        <div class="row mt-0">
+
+            <div class="col-md-4">
+                <div class="mt-3">
+                    <div class="text-center mt-1 mb-3 ">
+                        <img src="{{user.profile_to_user.prof_image.url}}" alt="{{user.username}}" class="image-wrap img-fluid rounded-circle" width="150px" height="150px">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-warning">
+                            <strong>
+                                المعلومات الشخصية
+                           </strong>
+                        </li>
+                        <li class="list-group-item">إسم المستخدم : {{user.username}}</li>
+                        <li class="list-group-item">الإسم الأول : {{user.first_name}}</li>
+                        <li class="list-group-item">الإسم الأخير : {{user.last_name}}</li>
+                        <li class="list-group-item">البريد الألكتروني : {{user.email}}</li>
+                        <li class="list-group-item">رقم الجوال : {{user.profile_to_user.prof_mob}}</li>
+                        <li class="list-group-item">الجنس: {{user.profile_to_user.gender}}</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-0 mb-5">
+            <a type="button" href="{% url 'account_app:update_user_profile' %}" class="btn btn-success btn-sm btn-block"><i class="fas fa-pen-fancy"></i>  تحرير الملف الشخصي   </a>
+        </div>
+
+</section>
+
+
+
+
+<hr>
+
+<div class="post text-center">
+    <h5 class="entry-title about-color pr-3"> مواضيع {{user.username}}</h5>
+
+</div>
+
+<section id="pagination">
+    <div class="container">
+        {% include 'blog_app/pagination.html' with page=posts_to_author %}
+    </div>
+</section>
+
+
+
+<article>
+    <div class="container">
+        <table class="table table-hover table-responsive">
+            <thead class="table-warning">
+                <tr>
+                    <th scope="col">الموضوع</th>
+                    <th scope="col">
+                        <i class="far fa-calendar-plus"></i> تم النشر
+                    </th>
+                    <th scope="col">
+                        <i class="far fa-calendar-check"></i> آخر تحديث
+                    </th>
+                    <th scope="col">
+                        <li class="fa fa fa-eye ">
+                    </th>
+                    <th scope="col">
+                        <i class="far fa-comments"></i>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in posts_to_author %}
+                <tr>
+                    <th scope="row"><a href="{% url 'blog_app:cat_post_detail' cat_id=post.cat_fk.id  post_id=post.id %}">{{ post.post_title }}</a></th>
+                    <td>{{ post.post_created }}</td>
+                    <td>{{post.post_updated }}</td>
+                    <td>{{ post.post_views_counter }}</td>
+                    <td>{{ post.comments_for_post_count }}</td>
+                    {% empty %}
+                    <div>
+                        لا يوجد لديك مواضيع تابعة لك {{user.username }}
+
+
+                        <a href="{% url 'blog_app:cats_list'%}">
+                     إختر قسم رئيسي 
+                     </a> . وأضف له موضع جديد {% endfor %}
+                    </div>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</article>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<section id="pagination">
+    <div class="container">
+        {% include 'blog_app/pagination.html' with page=posts_to_author %}
+    </div>
+</section>
+
+{% endblock %}
+
+
+
+
+
+<div class="container">
+    <section>
+        <h4>Personal Profile </h4>
+
+        <br><br>
+
+
+
+
+
+        <div class="panel panel-warning row" style="padding:20px;">
+            <div class="col-xs-12 col-md-6">
+
+                <div class="panel panel-warning">
+                    <div class="panel-body">
+                        <img width="150" height="150" style="object-position:center !important;" src="{{user.profile_to_user.prof_image.url}}" alt="author image">
+                        <a class="btn btn-info" style="float:right;" href="{% url 'account_app:update_user_profile'  %}">update</a>
+                    </div>
+
+                    <div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-md-6">
+
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-danger"> personal information </li>
+                    <li class="list-group-item">Usernam : {{user.username}}</li>
+                    <li class="list-group-item">First Name : {{user.first_name}}</li>
+                    <li class="list-group-item">Last Name : {{user.last_name}}</li>
+                    <li class="list-group-item">Email : {{user.email}}</li>
+                    <li class="list-group-item">Mobile Number : {{user.profile_to_user.prof_mob}}</li>
+                    <li class="list-group-item">Gender: {{user.profile_to_user.gender}}</li>
+                </ul>
+
+
+                <br><br><br>
+                <div>
+                    <p><strong>your posts :</strong></p>
+                    <div style="float:right;">
+                        {% include 'blog_app/pagination.html' with page=posts_to_author %}
+                    </div>
+                    <br><br><br>
+
+
+                    <ul class="list-group">
+                        {% for post in posts_to_author %}
+                        <li class="list-group-item list-group-item-danger"><a href="{% url 'blog_app:cat_post_detail' cat_id=post.cat_fk.id  post_id=post.id %}">post_title : {{ post.post_title }}</a></li>
+                        <li class="list-group-item fa fa-calendar-o"> : {{ post.post_created }}</li>
+                        <li class="list-group-item fa fa-calendar-check-o"> : {{post.post_updated }}</li>
+                        <li class="list-group-item fa fa fa-eye "> : {{ post.post_views_counter }}</li>
+                        <i class="far fa-comments"></i> : {{ post.comments_for_post_count }}</li>
+                        <br><br> {% empty %}
+                        <li class="list-group-item ">no post written by you {{user.username }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br><br>
+</div>
