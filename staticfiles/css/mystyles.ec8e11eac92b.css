@@ -1,0 +1,451 @@
+                                    /* my style add by mayalsanea */
+                                    
+                                    @font-face {
+                                        font-family: 'Tajawal';
+                                        src: url("../fonts/Tajawal-Regular.6b10b55e4df6.ttf") format("truetype"), local('Tajawal');
+                                    }
+                                    
+                                    html,
+                                    body {
+                                        direction: rtl;
+                                        text-align: right;
+                                    }
+                                    
+                                    body {
+                                        font-family: 'Tajawal', sans-serif;
+                                    }
+                                    /* end my style add by mayalsanea */
+                                    /* my custom style */
+                                    
+                                    #mainNav {
+                                        padding-top: 1px;
+                                        padding-bottom: 1px;
+                                        font-family: 'Tajawal', sans-serif;
+                                        font-size: large;
+                                    }
+                                    /* start  #mainNav .navbar-brand  */
+                                    
+                                    #mainNav.navbar-brand {
+                                        padding-top: 0px;
+                                        padding-right: 0px;
+                                        padding-bottom: 0px;
+                                        padding-left: 0px;
+                                        margin-top: 0px;
+                                        margin-right: 0px;
+                                        margin-bottom: 0px;
+                                        margin-left: 0px;
+                                    }
+                                    
+                                    a.navbar-brand {
+                                        margin-right: 0px;
+                                        margin-left: 0px;
+                                        margin-top: 0px;
+                                        margin-bottom: 0px;
+                                        padding-top: 0px;
+                                        padding-bottom: 0p;
+                                        padding-left: 0px;
+                                        padding-right: 0px;
+                                    }
+                                    
+                                    h1.navbar-brand {
+                                        margin-right: 0px;
+                                        padding-right: 0px;
+                                    }
+                                    /* end  #mainNav .navbar-brand  */
+                                    /* start  #mainNav .navbar-toggler  */
+                                    
+                                    #mainNav .navbar-toggler {
+                                        padding: 0.75rem;
+                                        font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+                                        color: #fff;
+                                        text-transform: uppercase;
+                                        background-color: rgb(252, 152, 1);
+                                        border: 0;
+                                        font-size: x-small;
+                                        margin-bottom: 3px;
+                                        margin-top: 1px;
+                                    }
+                                    
+                                    button.navbar-toggler {
+                                        margin-left: 0px;
+                                    }
+                                    /* end  #mainNav .navbar-toggler  */
+                                    
+                                    #mainNav .navbar-nav .nav-item .nav-link.active,
+                                    #mainNav .navbar-nav .nav-item .nav-link:hover {
+                                        color: #fed136;
+                                    }
+                                    /*start dropdown menu & items  */
+                                    
+                                    .dropdown-menu {
+                                        padding-right: 10px;
+                                        margin-bottom: 0px;
+                                    }
+                                    
+                                    .dropdown-menu .dropdown-item {
+                                        color: black;
+                                        text-align: right;
+                                        margin-right: 0px;
+                                        padding-right: 1px;
+                                    }
+                                    
+                                    .dropdown-item:hover,
+                                    .dropdown-item:focus {
+                                        color: #16181b;
+                                        text-decoration: none;
+                                        background-color: #e9e8e6;
+                                    }
+                                    /*end dropdown menu & items  */
+                                    
+                                    ul {
+                                        display: block;
+                                        list-style-type: disc;
+                                        margin-block-start: 0em;
+                                        margin-block-end: 1em;
+                                        margin-inline-start: 0px;
+                                        margin-inline-end: 0px;
+                                        padding-inline-start: 0px;
+                                    }
+                                    
+                                    #mainNav .navbar-nav .nav-item .nav-link {
+                                        font-family: 'Tajawal', sans-serif;
+                                        font-size: medium;
+                                    }
+                                    /* slice */
+                                    
+                                    .carousel-caption {
+                                        text-align: right;
+                                    }
+                                    
+                                    .card-position {
+                                        position: relative;
+                                        align-content: right;
+                                        margin-right: 1px;
+                                        margin-top: 1px;
+                                        max-width: 30rem;
+                                        max-height: 20rem;
+                                        float: right;
+                                    }
+                                    /* slice */
+                                    
+                                    .bg-transparent1 {
+                                        color: rgb(255, 255, 255);
+                                        background: rgba(0, 0, 0, 0.5)!important;
+                                    }
+                                    
+                                    .bg-transparent2 {
+                                        color: black;
+                                        background: rgba(255, 255, 255, 0.5)!important;
+                                    }
+                                    
+                                    .carousel-indicators li {
+                                        box-sizing: content-box;
+                                        flex: 0 1 auto;
+                                        width: 10px;
+                                        height: 10px;
+                                        margin-right: 3px;
+                                        margin-left: 3px;
+                                        text-indent: -999px;
+                                        cursor: pointer;
+                                        background-color: #fff;
+                                        background-clip: padding-box;
+                                        border-top: 10px solid transparent;
+                                        border-bottom: 10px solid transparent;
+                                        opacity: 0.5;
+                                        transition: opacity 0.6s ease;
+                                    }
+                                    
+                                    #section1 {
+                                        background-color: #F6F7F8;
+                                        margin-top: 0px;
+                                        margin-bottom: 0px;
+                                        padding-top: 10px;
+                                        padding-bottom: 10px;
+                                    }
+                                    
+                                    #my-carousel {
+                                        margin-top: 50px;
+                                        margin-bottom: 0px;
+                                        padding-top: 0px;
+                                        padding-bottom: 0px;
+                                    }
+                                    
+                                    #my-jumbotron {
+                                        margin-top: 0px;
+                                        margin-bottom: 0px;
+                                        padding-top: 0px;
+                                        padding-bottom: 0px;
+                                    }
+                                    
+                                    .jumbotron {
+                                        margin-bottom: 0px;
+                                    }
+                                    
+                                    .my-card {
+                                        border: 0px;
+                                        padding: 3px;
+                                        margin-top: 10px;
+                                        margin-bottom: 10px;
+                                        background-color: #F6F7F8;
+                                    }
+                                    
+                                    .my-row {
+                                        margin-top: 0px !important;
+                                        margin-bottom: 0px !important;
+                                    }
+                                    
+                                    .my-button {
+                                        background-color: rgb(199, 4, 23);
+                                    }
+                                    
+                                    .card-img,
+                                    .card-img-top,
+                                    .card-img-bottom {
+                                        padding: 10px;
+                                        background-color: #fff;
+                                    }
+                                    
+                                    .img-size {
+                                        width: 50%;
+                                        height: 50%;
+                                    }
+                                    /*  */
+                                    
+                                    #portfolio .portfolio-item .portfolio-link .portfolio-hover {
+                                        background: rgb(253, 152, 0, 0.5) !important;
+                                    }
+                                    /*  */
+                                    
+                                    .text-primary {
+                                        color: #fd9800!important;
+                                    }
+                                    
+                                    #mainNav .navbar-brand img {
+                                        height: 1.5rem;
+                                    }
+                                    
+                                    .team-member img {
+                                        width: 10rem;
+                                        height: 10rem;
+                                    }
+                                    
+                                    .myimg-size {
+                                        width: 145px;
+                                        height: 100px;
+                                    }
+                                    /*footer */
+                                    
+                                    #footer {
+                                        padding: 0rem 0 !important;
+                                    }
+                                    
+                                    .bg_main {
+                                        background-color: #CACACA
+                                    }
+                                    /* footer */
+                                    
+                                    #my-jumbotron {
+                                        margin-top: 0px;
+                                        margin-bottom: 0px;
+                                        padding-top: 0px;
+                                        padding-bottom: 0px;
+                                    }
+                                    
+                                    .jumbotron {
+                                        margin-top: 0px;
+                                        margin-bottom: 0px;
+                                        padding-top: 10px;
+                                        padding-bottom: 50px;
+                                    }
+                                    
+                                    #circles-section {
+                                        margin-top: 0px;
+                                        margin-bottom: 0px;
+                                        padding-top: 50px;
+                                        padding-bottom: 50px;
+                                    }
+                                    
+                                    #portfolio {
+                                        margin-top: 0px;
+                                        margin-bottom: 0px;
+                                        padding-top: 50px;
+                                        padding-bottom: 100px;
+                                    }
+                                    
+                                    #team {
+                                        margin-top: 0px;
+                                        margin-bottom: 0px;
+                                        padding-top: 50px;
+                                        padding-bottom: 50px;
+                                    }
+                                    
+                                    #sites_links {
+                                        margin-top: 0px;
+                                        margin-bottom: 0px;
+                                        padding-top: 50px;
+                                        padding-bottom: 0px;
+                                    }
+                                    
+                                    #messages {
+                                        margin-top: 0px;
+                                        margin-bottom: 0px;
+                                        padding-top: 0px;
+                                        padding-bottom: 0px;
+                                    }
+                                    
+                                    #mybreadcrumb {
+                                        margin-top: 10px;
+                                        margin-bottom: 0px;
+                                        padding-top: 0px;
+                                        padding-bottom: 0px
+                                    }
+                                    
+                                    #padge_add {
+                                        margin-top: 0px;
+                                        margin-bottom: 0px;
+                                        padding-top: 2px;
+                                        padding-bottom: 2px;
+                                    }
+                                    
+                                    #padge {
+                                        margin-top: 0px;
+                                        margin-bottom: 0px;
+                                        padding-top: 2px;
+                                        padding-bottom: 2px;
+                                    }
+                                    
+                                    #pagination {
+                                        margin-top: 40px;
+                                        margin-bottom: 30px;
+                                        padding-top: 2px;
+                                        padding-bottom: 2px;
+                                    }
+                                    
+                                    #catslist {
+                                        margin-top: 0px;
+                                        margin-bottom: 0px;
+                                        padding-top: 2px;
+                                        padding-bottom: 2px;
+                                    }
+                                    
+                                    #postscat {
+                                        margin-top: 0px;
+                                        margin-bottom: 0px;
+                                        padding-top: 2px;
+                                        padding-bottom: 2px;
+                                    }
+                                    
+                                    #updatedeletebt {
+                                        margin-top: 0px;
+                                        margin-bottom: 35px;
+                                        padding-top: 2px;
+                                        padding-bottom: 2px;
+                                    }
+                                    
+                                    #postdetail {
+                                        margin-top: 0px;
+                                        margin-bottom: 0px;
+                                        padding-top: 2px;
+                                        padding-bottom: 2px;
+                                    }
+                                    
+                                    #commentslist {
+                                        margin-top: 0px;
+                                        margin-bottom: 0px;
+                                        padding-top: 2px;
+                                        padding-bottom: 2px;
+                                    }
+                                    
+                                    #myprofile {
+                                        margin-top: 20px;
+                                        margin-bottom: 0px;
+                                        padding-top: 2px;
+                                        padding-bottom: 2px;
+                                    }
+                                    
+                                    .img-pro {
+                                        width: "100px" !important;
+                                        height: "100px" !important;
+                                    }
+                                    /*  */
+                                    
+                                    h1,
+                                    h2,
+                                    h3,
+                                    h4,
+                                    h5,
+                                    h6,
+                                    .h1,
+                                    .h2,
+                                    .h3,
+                                    .h4,
+                                    .h5,
+                                    .h6 {
+                                        font-family: 'Tajawal';
+                                        src: url("../fonts/Tajawal-Regular.6b10b55e4df6.ttf") format("truetype"), local('Tajawal');
+                                    }
+                                    
+                                    .text-muted {
+                                        color: #6c757d !important;
+                                    }
+                                    
+                                    .team-member {
+                                        margin-bottom: 3rem;
+                                        text-align: center;
+                                    }
+                                    
+                                    body {
+                                        font-family: 'Tajawal', sans-serif;
+                                    }
+                                    
+                                    html,
+                                    body {
+                                        direction: rtl;
+                                        text-align: right;
+                                    }
+                                    
+                                     ::selection {
+                                        background: #dddbdb;
+                                    }
+                                    
+                                    #portfolio .portfolio-item .portfolio-caption .portfolio-caption-heading {
+                                        font-family: 'Tajawal';
+                                        src: url("../fonts/Tajawal-Regular.6b10b55e4df6.ttf") format("truetype"), local('Tajawal');
+                                    }
+                                    
+                                    .myborder-top {
+                                        border-top: #F05F40 !important;
+                                        border-width: 50px;
+                                    }
+                                    
+                                    .about-color {
+                                        color: rgb(252, 152, 1) !important;
+                                    }
+                                    
+                                    .box-content {
+                                        padding: 0px;
+                                    }
+                                    /* breadcrumb start */
+                                    
+                                    .breadcrumb {
+                                        background-color: #CACACA;
+                                    }
+                                    /* breadcrumb end */
+                                    
+                                    .postcard {
+                                        position: relative;
+                                        display: flex;
+                                        flex-direction: column;
+                                        min-width: 0;
+                                        word-wrap: break-word;
+                                        background-color: rgb(255, 255, 255);
+                                        background-clip: border-box;
+                                        border: 0.5px solid #fed136;
+                                        border-radius: 0.25rem;
+                                    }
+                                    
+                                    .stretched-link {
+                                        color: #6c757d;
+                                        font-weight: 700;
+                                    }
+                                    /*  */
